@@ -8,9 +8,9 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
   const [taskState, setTaskState] = useState({
     tasks: [
-      { id: 1, title: "Dishes", description: "Empty dishwasher", deadline: "Today", done: false },
-      { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", done: false },
-      { id: 3, title: "Tidy up", deadline: "Today", done: false }
+      { id: 1, title: "Dishes", description: "Empty dishwasher", deadline: "Today", priority: "Low", done: false },
+      { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", priority: "Medium", done: false },
+      { id: 3, title: "Tidy up", deadline: "Today", priority: "High",done: false }
     ]
   });
 
@@ -74,6 +74,7 @@ function App() {
           title={task.title}
           description={task.description}
           deadline={task.deadline}
+          priority={task.priority}
           key={task.id}
           done={task.done}
           markDone={() => doneHandler(index)}
