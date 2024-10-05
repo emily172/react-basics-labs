@@ -1,19 +1,29 @@
 import React from 'react';
 
 const Task = (props) => {
+    const PriorityColour = (priority) => {
+        switch (priority) {
+            case 'High':
+                return { backgroundColor: 'red' };
+            case 'Medium':
+                return { backgroundColor: 'orange' };
+            case 'Low':
+                return { backgroundColor: 'green' };
+            default:
+                return {};
+        }
+    };
 
     return (
         <div className="card" style={{ backgroundColor: props.done ? 'lightgrey' : '#5bb4c4' }}>
             <p className="title">{props.title}</p>
             <p>Due: {props.deadline}</p>
             <p>{props.description}</p>
-            <p>{props.priority}</p>
+            <p style={PriorityColour(props.priority)}>{props.priority}</p>
             <button onClick={props.markDone} className='doneButton'>Done</button>
             <button className='deleteButton' onClick={props.deleteTask}>Delete</button>
         </div>
-
-    )
+    );
 }
-
 
 export default Task;
